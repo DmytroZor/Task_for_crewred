@@ -1,0 +1,15 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite+aiosqlite:////data/travel_planner.db
+      API_USERNAME: ${API_USERNAME:-admin}
+      API_PASSWORD: ${API_PASSWORD:-change-me}
+    volumes:
+      - travel_data:/data
+
+volumes:
+  travel_data:
+
